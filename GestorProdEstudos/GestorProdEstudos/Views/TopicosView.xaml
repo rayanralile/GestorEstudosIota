@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorProdEstudos.Views.TopicosView"
+             Title="Tópicos - Iota Gestor">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Novo"
+                 Order="Primary"
+                 Priority="0" Clicked="Add_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#171171" Padding="14" CornerRadius="0" HasShadow="True" HeightRequest="28">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Text="Título" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="16"/>
+                    <Label Grid.Column="1" Text="Data Base" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="16"/>
+                    <Label Grid.Column="2" Text="Excluir" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="16"/>
+                </Grid>
+            </Frame>
+            <ListView HasUnevenRows="True" x:Name="listView" ItemSelected="listView_ItemSelected" IsRefreshing="{Binding IsLoading, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10" BackgroundColor="LightCyan">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Titulo}" TextColor="Black"  FontSize="14"/>
+                                <Label Grid.Column="1" Text="{Binding DataCadastro, StringFormat='{0:dd/MM/yyyy}'}" TextColor="Black"  FontSize="14"/>
+                                <Button Grid.Column="2" BackgroundColor="Red" TextColor="White" FontSize="18" Text="X" Clicked="TopicoExcluir_Clicked" CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

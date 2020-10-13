@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorProdEstudos.Views.SettingsView"
+             Title="Configurações">
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView Intent="Settings" BackgroundColor="LightCyan" HasUnevenRows="True">
+                <TableRoot>
+                    <TableSection Title="Configurações Gerais">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Hora da notificação.:" VerticalOptions="Center"/>
+                                <TimePicker Time="{Binding HoraNotificacao, StringFormat='{0:hh:mm}', Mode=TwoWay}"/>
+                            </StackLayout>
+                        </ViewCell>
+                        <EntryCell Label="Dias para a 1ª revisão (a mais importante)" Text="{Binding RevisaoUm, Mode=TwoWay}" Keyboard="Numeric"/>
+                        <EntryCell Label="Dias para a 2ª revisão" Text="{Binding RevisaoDois, Mode=TwoWay}" Keyboard="Numeric"/>
+                        <EntryCell Label="Dias para a 3ª revisão" Text="{Binding RevisaoTres, Mode=TwoWay}" Keyboard="Numeric"/>
+                        <EntryCell Label="Dias para a 4ª revisão e demais" Text="{Binding RevisaoQuatro, Mode=TwoWay}" Keyboard="Numeric"/>
+                        <EntryCell Label="Quantidade de revisões após a 4ª" Text="{Binding RevisaoExtraQtd, Mode=TwoWay}" Keyboard="Numeric"/>
+                        <ViewCell>
+                            <StackLayout Padding="13, 0">
+                                <Label Text="O número de dias para cada revisão é baseado na data do tópico cadastrado. Coloque o valor 0 caso não deseje a revisão. A primeira revisão é obrigatória (número maior que zero). Não coloque números decimais. Se o fizer, o programa irá truncar este número." FontSize="Small" />
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Button BackgroundColor="LightGreen" Text="Salvar" Scale="1.25" HeightRequest="40"  VerticalOptions="End" Clicked="Save_Clicked"/>
+            <Button BackgroundColor="Red" Text="Cancelar" Scale="1.25" HeightRequest="40"  VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

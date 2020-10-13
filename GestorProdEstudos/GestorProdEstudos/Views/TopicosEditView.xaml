@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorProdEstudos.Views.TopicosEditView"
+             Title="Edição de Tópicos - Iota Gestor">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <TableView BackgroundColor="LightCyan" Intent="Form" HasUnevenRows="True">
+                <TableRoot>
+                    <TableSection Title="Insira os dados do tópico abaixo e clique em Salvar">
+                        <EntryCell Label="Título.:         " Placeholder="ex: MEC - Comportas" Text="{Binding Titulo}"/>
+                        <ViewCell>
+                            <Grid Padding="13,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="Descrição.:" VerticalOptions="Center"/>
+                                <Editor Grid.Column="1" Placeholder="Ex: Folha 5 da apostila, com exercícios na pag 5. Ver também as anotações do Prof. Gustavo" AutoSize="TextChanges" HeightRequest="200" Keyboard="Text" MaxLength="2000" Text="{Binding Descricao}"/>
+                            </Grid>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="13, 0">
+                                <Label Text="Data de Cadastro:" VerticalOptions="Center"/>
+                                <DatePicker Date="{Binding DataCadastro}" Format="d MMM yyyy"/>
+                                <!-- Date="{x:Static sys:DateTime.Today}" -->
+                            </StackLayout>
+                        </ViewCell>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="Center">
+                                <Label/>
+                                <Button Text="Salvar" Clicked="Salvar_Clicked" Scale="1.25"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

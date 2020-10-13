@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorProdEstudos.MainPage">
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Menu">
+            <ContentPage.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color" Android="LightGray" />
+            </ContentPage.BackgroundColor>
+            <StackLayout>
+                <!--<Image Source="background.jpg"/> -->
+                <TableView Intent="Menu">
+                    <TableRoot>
+                        <TableSection>
+                            <TextCell Text="Tópicos" Detail="Gerir os tópicos que você fará revisões" Tapped="Topicos_Tapped"  TextColor="Black"/>
+                            <TextCell Text="Todas as notificações" Detail="Notificações advindas dos tópicos cadastrados" Tapped="Notifications_Tapped" TextColor="Black"/>
+                        </TableSection>
+                        <TableSection Title="Sobre o App:" TextColor="Blue">
+                            <TextCell Text="Autor" TextColor="Black"/>
+                            <TextCell Text="Feedback ao autor" TextColor="Black"/>
+                        </TableSection>
+                        <TableSection Title="Configurações" TextColor="Blue">
+                            <TextCell Text="Configurações Gerais" TextColor="Black" Tapped="Settings_Tapped"/>
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage/>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
